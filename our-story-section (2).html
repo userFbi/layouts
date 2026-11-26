@@ -1,0 +1,211 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+<style>
+  html, body { margin: 0; padding: 0; overflow-x: clip; background: #15100a; }
+  .hr-story {
+    --hr-bg: #15100a;
+    --hr-cream: #f6ead2;
+    --hr-accent: #f7a823;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    background: var(--hr-bg);
+    color: var(--hr-cream);
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+  .hr-story *, .hr-story *::before, .hr-story *::after { box-sizing: border-box; }
+
+  .hr-story__pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hr-story__track {
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+    padding: 0 6vw 0 2vw;
+    will-change: transform;
+  }
+
+  /* Headline panel */
+  .hr-story__intro { flex: 0 0 auto; width: 45vw; }
+  .hr-story__eyebrow {
+    margin: 0 0 1.4vw;
+    font-size: clamp(11px, 0.75vw, 15px);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hr-accent);
+  }
+  .hr-story__title {
+    margin: 0;
+    font-family: "Anton", Impact, sans-serif;
+    font-weight: 400;
+    font-size: 6.5vw;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    color: var(--hr-cream);
+  }
+  .hr-story__hint {
+    margin: 2.4vw 0 0;
+    font-size: clamp(12px, 0.8vw, 16px);
+    font-weight: 700;
+    color: var(--hr-accent);
+  }
+
+  /* Story panels */
+  .hr-story__item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3.6vw;
+  }
+  .hr-story__img {
+    flex: 0 0 auto;
+    width: 31vw;
+    max-width: 620px;
+    aspect-ratio: 1 / 1.02;
+    max-height: 62vh;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+  .hr-story__text { width: 24vw; max-width: 480px; }
+  .hr-story__label {
+    display: block;
+    margin-bottom: 0.9vw;
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic;
+    font-size: clamp(26px, 2.5vw, 52px);
+    line-height: 1;
+    color: var(--hr-accent);
+  }
+  .hr-story__heading {
+    margin: 0 0 1vw;
+    font-family: "Anton", Impact, sans-serif;
+    font-weight: 400;
+    font-size: clamp(26px, 2.7vw, 56px);
+    line-height: 1.08;
+    text-transform: uppercase;
+    color: var(--hr-cream);
+  }
+  .hr-story__body {
+    margin: 0;
+    font-size: clamp(13px, 0.95vw, 19px);
+    line-height: 1.5;
+    color: var(--hr-cream);
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .hr-story__track { gap: 10vw; padding: 0 10vw 0 5vw; }
+    .hr-story__intro { width: 86vw; }
+    .hr-story__title { font-size: 15vw; }
+    .hr-story__eyebrow { margin-bottom: 5vw; font-size: 12px; }
+    .hr-story__hint { margin-top: 7vw; font-size: 14px; }
+    .hr-story__item { flex-direction: column; align-items: flex-start; gap: 5vw; }
+    .hr-story__img { width: 72vw; max-height: 46vh; }
+    .hr-story__text { width: 72vw; max-width: none; }
+    .hr-story__label { font-size: 30px; margin-bottom: 8px; }
+    .hr-story__heading { font-size: 32px; margin-bottom: 10px; }
+    .hr-story__body { font-size: 15px; }
+  }
+</style>
+
+<section class="hr-story" data-hr-story aria-labelledby="hr-story-title">
+  <div class="hr-story__pin">
+    <div class="hr-story__track">
+
+      <div class="hr-story__intro">
+        <p class="hr-story__eyebrow">Our story</p>
+        <h2 class="hr-story__title" id="hr-story-title">How a family farm became a beekeeping operation worth defending.</h2>
+        <p class="hr-story__hint">Keep scrolling →</p>
+      </div>
+
+      <article class="hr-story__item">
+        <img class="hr-story__img" src="https://hive-riot-home-redesign.vercel.app/img/barn-640.webp" alt="The Hive Riot barn in Keller, Texas silhouetted by oak trees at sunset" loading="lazy" draggable="false">
+        <div class="hr-story__text">
+          <span class="hr-story__label">2019</span>
+          <h3 class="hr-story__heading">We bought a small farm in Keller.</h3>
+          <p class="hr-story__body">As the land around us disappeared into subdivisions and retail developments, we made a deliberate choice: keep this ground in agriculture.</p>
+        </div>
+      </article>
+
+      <article class="hr-story__item">
+        <img class="hr-story__img" src="https://hive-riot-home-redesign.vercel.app/img/couple-640.webp" alt="The Hive Riot founders smiling in beekeeping suits and veils beside their hives" loading="lazy" draggable="false">
+        <div class="hr-story__text">
+          <span class="hr-story__label">Then</span>
+          <h3 class="hr-story__heading">Honey turned into something bigger.</h3>
+          <p class="hr-story__body">Low land disturbance. High environmental leverage. And a natural fit with education, stewardship and community.</p>
+        </div>
+      </article>
+
+      <article class="hr-story__item">
+        <img class="hr-story__img" src="https://hive-riot-home-redesign.vercel.app/img/hives-1000.webp" alt="Beekeeper in a canvas suit standing arms wide between rows of white hive boxes on Texas land" loading="lazy" draggable="false">
+        <div class="hr-story__text">
+          <span class="hr-story__label">Next</span>
+          <h3 class="hr-story__heading">Landowners started asking for help.</h3>
+          <p class="hr-story__body">Placing hives gave us more diverse forage and helped families protect their land from development pressure.</p>
+        </div>
+      </article>
+
+      <article class="hr-story__item">
+        <img class="hr-story__img" src="https://hive-riot-home-redesign.vercel.app/img/family-1400.webp" alt="A child and parent working beside a honey extractor in the Hive Riot family operation" loading="lazy" draggable="false">
+        <div class="hr-story__text">
+          <span class="hr-story__label">Now</span>
+          <h3 class="hr-story__heading">Four kids who've grown up in the hives.</h3>
+          <p class="hr-story__body">They've been stung more times than we can count. This isn't a side project we'll sell off someday. It's the operation we're building together.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-hr-story]').forEach(function (section) {
+      var track = section.querySelector('.hr-story__track');
+      var distance = 0;
+      var ticking = false;
+
+      function measure() {
+        distance = Math.max(track.scrollWidth - window.innerWidth, 0);
+        section.style.height = (distance + window.innerHeight) + 'px';
+        render();
+      }
+
+      function render() {
+        ticking = false;
+        var scrollable = section.offsetHeight - window.innerHeight;
+        var top = section.getBoundingClientRect().top;
+        var progress = scrollable > 0 ? Math.min(Math.max(-top / scrollable, 0), 1) : 0;
+        track.style.transform = 'translate3d(' + (-progress * distance) + 'px,0,0)';
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(render);
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', measure);
+      window.addEventListener('load', measure);
+      track.querySelectorAll('img').forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', measure);
+      });
+      if ('ResizeObserver' in window) new ResizeObserver(measure).observe(track);
+      measure();
+    });
+  })();
+</script>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hive Riot Honey Co. - Quote</title>
+
+<!-- Fonts (Shopify font_picker na badle Google Fonts) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<style>
+  /* Page reset (Shopify theme ma aa already hoy chhe) */
+  html, body { margin: 0; padding: 0; background: #15100a; }
+
+  /* ===== Hive Quote section ===== */
+  #hive-quote {
+    --hq-bg: #15100a;
+    --hq-overlay: rgba(21, 16, 10, 0.5);
+    --hq-height: 2200px;
+    --hq-height-mobile: 1600px;
+    --hq-max-width: 1400px;
+
+    --hq-offset: 0px;
+    --hq-pad-left: 12.5%;
+    --hq-offset-tablet: 0px;
+    --hq-pad-x-tablet: 7%;
+    --hq-offset-mobile: 0px;
+    --hq-pad-x-mobile: 6%;
+
+    --hq-heading-family: 'Anton', sans-serif;
+    --hq-heading-weight: 400;
+    --hq-heading-style: normal;
+    --hq-heading-min: 46px;
+    --hq-heading-vw: 7.7vw;
+    --hq-heading-max: 150px;
+    --hq-heading-max-tablet: 75px;
+    --hq-heading-max-mobile: 55px;
+    --hq-heading-lh: 0.88;
+    --hq-heading-width: 7.5em;
+    --hq-heading-color: #fdf8ec;
+    --hq-gold-color: #f5a800;
+    --hq-dim: 0.15;
+    --hq-speed: 0.4s;
+
+    --hq-caption-family: 'Playfair Display', serif;
+    --hq-caption-weight: 400;
+    --hq-caption-style: italic;
+    --hq-caption-size: 20px;
+    --hq-caption-size-tablet: 18px;
+    --hq-caption-size-mobile: 17px;
+    --hq-caption-color: #fdf8ec;
+    --hq-caption-mt: 48px;
+    --hq-caption-mt-tablet: 35px;
+    --hq-caption-mt-mobile: 30px;
+
+    position: relative;
+    width: 100%;
+    height: var(--hq-height);
+    background: var(--hq-bg);
+  }
+
+  #hive-quote * { box-sizing: border-box; }
+
+  /* STICKY PIN */
+  #hive-quote .hq__pin {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  /* BACKGROUND IMAGE */
+  #hive-quote .hq__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* DARK OVERLAY */
+  #hive-quote .hq__pin::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hq-overlay);
+    z-index: 1;
+  }
+
+  /* CONTENT */
+  #hive-quote .hq__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--hq-max-width);
+    margin: 0 auto;
+    /* vertical offset from the exact center (0 = centered) */
+    transform: translateY(var(--hq-offset));
+  }
+
+  /* HEADING */
+  #hive-quote .hq__heading {
+    margin: 0;
+    max-width: 1380px;
+    font-family: var(--hq-heading-family);
+    font-weight: var(--hq-heading-weight);
+    font-style: var(--hq-heading-style);
+    font-size: clamp(var(--hq-heading-min), var(--hq-heading-vw), var(--hq-heading-max));
+
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--hq-heading-color);
+  }
+
+  /* WORD ANIMATION */
+  #hive-quote .hq__word {
+    opacity: var(--hq-dim);
+    transition: opacity var(--hq-speed) ease, color var(--hq-speed) ease;
+  }
+  #hive-quote .hq__word.active { opacity: 1; }
+  #hive-quote .hq__word.gold.active { color: var(--hq-gold-color); }
+
+  /* CAPTION */
+  #hive-quote .hq__caption {
+    display: block;
+    margin: var(--hq-caption-mt) 0 0;
+    font-family: var(--hq-caption-family);
+    font-weight: var(--hq-caption-weight);
+    font-style: var(--hq-caption-style);
+    font-size: var(--hq-caption-size);
+    color: var(--hq-caption-color);
+  }
+
+  /* TABLET */
+  @media (max-width: 768px) {
+    #hive-quote .hq__container { padding: 0 var(--hq-pad-x-tablet); transform: translateY(var(--hq-offset-tablet)); }
+    #hive-quote .hq__heading {
+      font-size: clamp(45px, 9vw, var(--hq-heading-max-tablet));
+    }
+    #hive-quote .hq__caption {
+      font-size: var(--hq-caption-size-tablet);
+      margin-top: var(--hq-caption-mt-tablet);
+    }
+  }
+
+  /* MOBILE */
+  @media (max-width: 480px) {
+    #hive-quote { height: var(--hq-height-mobile); }
+    #hive-quote .hq__container { padding: 0 var(--hq-pad-x-mobile); transform: translateY(var(--hq-offset-mobile)); }
+    #hive-quote .hq__heading {
+      font-size: clamp(39px, 11vw, var(--hq-heading-max-mobile));
+      line-height: .95;
+    }
+    #hive-quote .hq__caption {
+      font-size: var(--hq-caption-size-mobile);
+      margin-top: var(--hq-caption-mt-mobile);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #hive-quote .hq__word {
+      opacity: 1;
+      transition: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sticky effect mate koi parent ma overflow:hidden na hovu joiye -->
+<section id="hive-quote" class="hive-quote">
+  <div class="hq__pin">
+
+    <!-- BACKGROUND IMAGE: src ma potani image no path/URL muko -->
+    <img
+      class="hq__bg"
+      src="images/hero.jpg"
+      srcset="images/hero-800.jpg 800w, images/hero-1400.jpg 1400w, images/hero-2000.jpg 2000w, images/hero-2400.jpg 2400w"
+      sizes="100vw"
+      alt="Beekeeper crossing the pasture on the way to the hives"
+      loading="lazy"
+    >
+
+    <div class="hq__container">
+      <h2 class="hq__heading" id="hq-heading" aria-label="&quot;Our bees make delicious honey. But they don't take kindly to strangers.&quot;">
+        <!-- Pela 5 words (0-4) white, 5th thi gold. Gold start badalva mate "gold" class kadhi/umero -->
+        <span class="hq__word" aria-hidden="true">&quot;Our </span>
+        <span class="hq__word" aria-hidden="true">bees </span>
+        <span class="hq__word" aria-hidden="true">make </span>
+        <span class="hq__word" aria-hidden="true">delicious </span>
+        <span class="hq__word" aria-hidden="true">honey. </span>
+        <span class="hq__word gold" aria-hidden="true">But </span>
+        <span class="hq__word gold" aria-hidden="true">they </span>
+        <span class="hq__word gold" aria-hidden="true">don't </span>
+        <span class="hq__word gold" aria-hidden="true">take </span>
+        <span class="hq__word gold" aria-hidden="true">kindly </span>
+        <span class="hq__word gold" aria-hidden="true">to </span>
+        <span class="hq__word gold" aria-hidden="true">strangers.&quot; </span>
+      </h2>
+
+      <p class="hq__caption">Sign at the farm gate</p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    var section = document.getElementById('hive-quote');
+    if (!section) return;
+
+    var words = section.querySelectorAll('.hq__word');
+    var speed = 0.75; // scroll_speed 75% (lower = words faster light up)
+    var ticking = false;
+
+    function animateQuote() {
+      ticking = false;
+
+      var rect = section.getBoundingClientRect();
+      var scrollable = (section.offsetHeight - window.innerHeight) * speed;
+      var progress = scrollable > 0 ? Math.min(Math.max(-rect.top / scrollable, 0), 1) : 1;
+
+      for (var i = 0; i < words.length; i++) {
+        if (i < progress * words.length) {
+          words[i].classList.add('active');
+        } else {
+          words[i].classList.remove('active');
+        }
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(animateQuote);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    animateQuote();
+  })();
+</script>
+
+</body>
+</html>
